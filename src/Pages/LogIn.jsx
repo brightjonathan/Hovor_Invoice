@@ -3,6 +3,9 @@ import {AiFillEyeInvisible, AiFillEye, AiOutlineMail} from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
 import GoogleAuth from '../Components/GoogleAuth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import LoadSpinner from '../Utility/LoadSpinner';
+import { auth } from '../Firebase/Firebase_config';
 
 
 const initialState = {
@@ -11,7 +14,7 @@ const initialState = {
   };
   
 
-const LogIn = ({setisAuth}) => {
+const LogIn = ({setisAuth, setuser}) => {
 
 
   const navigate = useNavigate();
@@ -57,9 +60,20 @@ const LogIn = ({setisAuth}) => {
 
     if (validateForm()) {
       try {
-        
+        setLoading(true);
+          if( email && password ){
+          const {user} = await signInWithEmailAndPassword(
+            auth, email, password
+          )
+          setLoading(false);
+          setuser(user)
+          localStorage.setItem('LoggedIn_invoice', true);
+          setisAuth(true)
+          toast.success('Login successfully')
+          navigate('/invoice')
+          }
       } catch (error) {
-        toast.error(error.message);
+        toast.error('Invalid credential');
         setLoading(false);
       }
     }
@@ -73,7 +87,7 @@ const LogIn = ({setisAuth}) => {
   
   return (
     <div className='mt-[5vh]'>
-      {/* {loading && <LoaderSpinner />} */}
+      {loading && <LoadSpinner />}
     <div className='max-w-[800px] m-auto px-4 pb-16'>
       <div className=' dark:bg-[#e8edea] px-10 py-8 rounded-lg text-black'>
         <h1 className='text-2xl font-bold text-green-800'> Login Account </h1>

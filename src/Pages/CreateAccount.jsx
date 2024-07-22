@@ -91,7 +91,7 @@ const CreateAccount = ({setisAuth}) => {
              toast.success('signup successfully');
              localStorage.setItem('LoggedIn_invoice', true);
              setisAuth(true);
-             navigate('/')
+             navigate('/invoice')
              setLoading(false);
             }  
            } catch (error) {
