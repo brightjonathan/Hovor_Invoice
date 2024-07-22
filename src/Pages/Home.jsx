@@ -2,6 +2,8 @@ import React from 'react';
 import hero from '../assets/rifeo.png';
 import '../Utility/Animate.css';
 import { Link } from 'react-router-dom';
+import CallToAction from '../Components/CallToAction';
+import MainFooter from './MainFooter';
 
 const Home = () => {
   return (
@@ -58,6 +60,9 @@ const Home = () => {
       </section>
     </section>
     <div className="slant"></div>
+
+    <CallToAction/>
+    <MainFooter/>
   </>
   )
 }
