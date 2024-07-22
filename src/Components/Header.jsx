@@ -39,15 +39,16 @@ const Header = ({ isAuth, handleSignOut }) => {
 
         <nav className="navbar">
           <ul>
-            {links.map(({ id, title, url }) => (
+            {links.map(({ id, title, url_path }) => (
               <div key={id}>
                 <li key={id} className="list-item">
-                  <Link to={url} className="text-base text-slate-700">
+                  <Link to={url_path} className="text-base text-slate-700">
                     {title}
                   </Link>
                 </li>
               </div>
             ))}
+           
 
             <li>
                 {isAuth ? <Logout handleSignOut={handleSignOut} /> : <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link> 

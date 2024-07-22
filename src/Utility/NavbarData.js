@@ -10,13 +10,18 @@ export const navbarData = [
   },
   {
     id: uuidv4(),
-    title: "About Invoicer",
+    title: "About Us",
     url_path: "/about",
   },
   {
     id: uuidv4(),
-    title: "Suggestion Box",
-    url_path: "/suggestion-box",
+    title: " Create Invoice",
+    url_path: "/invoice",
+  },
+  {
+    id: uuidv4(),
+    title: "Create Receipt",
+    url_path: "#",
   },
 ];
 
