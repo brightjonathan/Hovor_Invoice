@@ -33,7 +33,7 @@ const Footer = ({formValue}) => {
       </footer>
 
       <p className="text-center px-5 mt-8 text-xs ">
-        Invoicer is built by{" "}
+        built by{" "}
         <a
           href="https://www.linkedin.com/in/bright-jonathan-554970212/"
           target="_blank"

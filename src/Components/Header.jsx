@@ -30,10 +30,10 @@ const Header = ({ isAuth, handleSignOut }) => {
 
   return (
     <>
-      <header className="p-5 flex items-center justify-between xl:max-w-7xl lg:mx-auto 2xl:px-0 ">
+      <header className="p-5 flex items-center justify-between xl:max-w-7xl lg:mx-auto 2xl:px-0  ">
         <div>
           <h2 className="font-bold text-4xl text-gray-800">
-            <Link to="/">Invoicer</Link>
+            <Link to="/" > R.I.C.E.O </Link>
           </h2>
         </div>
 
@@ -51,7 +51,8 @@ const Header = ({ isAuth, handleSignOut }) => {
            
 
             <li>
-                {isAuth ? <Logout handleSignOut={handleSignOut} /> : <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link> 
+                {
+                isAuth ? <Logout handleSignOut={handleSignOut} /> : <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link> 
                 }
             </li>
             <li>
