@@ -1,6 +1,11 @@
 import React from 'react'
 
-const Table = () => {
+const Table = ({formValue}) => {
+
+  const {list, total} = formValue;
+
+
+  
   return (
     <>
     <table width="100%" className="mb-10">
@@ -12,7 +17,7 @@ const Table = () => {
           <td className="font-bold">Amount</td>
         </tr>
       </thead>
-      {/* {list.map(({ id, description, quantity, price, amount }) => (
+      {list.map(({ id, description, quantity, price, amount }) => (
         <React.Fragment key={id}>
           <tbody>
             <tr className="h-10">
@@ -23,12 +28,12 @@ const Table = () => {
             </tr>
           </tbody>
         </React.Fragment>
-      ))} */}
+      ))}
     </table>
 
     <div>
       <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-        &#x20A6;1200
+        &#x20A6;{total.toLocaleString()}
       </h2>
     </div>
   </>

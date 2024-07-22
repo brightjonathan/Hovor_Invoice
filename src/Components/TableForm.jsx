@@ -1,7 +1,10 @@
 import React, { useContext } from "react";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
-const TableForm = () => {
+const TableForm = ({formValue, onInputChange }) => {
+
+  const { description, quantity, price, amount, list, total } = formValue;
+
   return (
     <>
       <form >
@@ -13,6 +16,8 @@ const TableForm = () => {
             id="description"
             placeholder="Item description"
             maxLength={96}
+            value={description}
+            onChange={onInputChange}
           />
         </div>
 
@@ -25,6 +30,8 @@ const TableForm = () => {
               id="quantity"
               placeholder="Quantity"
               maxLength={33}
+              value={quantity}
+              onChange={onInputChange}
             />
           </div>
 
@@ -36,12 +43,14 @@ const TableForm = () => {
               id="price"
               placeholder="Price"
               maxLength={33}
+              value={price}
+              onChange={onInputChange}
             />
           </div>
 
           <div className="flex flex-col">
             <label htmlFor="amount">Amount</label>
-            {/* <p>{amount}</p> */}
+            <p>{amount}</p>
           </div>
         </div>
         <button
@@ -64,7 +73,7 @@ const TableForm = () => {
             <td className="font-bold">Amount</td>
           </tr>
         </thead>
-        {/* {list.map(({ id, description, quantity, price, amount }) => (
+        {list.map(({ id, description, quantity, price, amount }) => (
           <React.Fragment key={id}>
             <tbody>
               <tr className="h-10">
@@ -84,9 +93,9 @@ const TableForm = () => {
                 </td>
               </tr>
             </tbody>
-            {showModal && <DeleteModal id={id} />}
+            {/* {showModal && <DeleteModal id={id} />} */}
           </React.Fragment>
-        ))} */}
+        ))}
       </table>
 
       <div>
@@ -99,6 +108,8 @@ const TableForm = () => {
 }
 
 export default TableForm;
+
+
 
 
 
