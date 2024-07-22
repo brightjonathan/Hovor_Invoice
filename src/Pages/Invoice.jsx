@@ -3,7 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import ReactToPrint from "react-to-print";
 import TableForm from '../Components/TableForm';
 import InvoiceHeader from '../Components/InvoiceHeader';
-import MainDetails from './MainDetails';
+import MainDetails from '../Components/MainDetails';
+import ClientDetails from '../Components/ClientDetails';
+import Date from '../Components/Date';
+import Table from '../Components/Table';
+import Notes from '../Components/Notes';
+import Footer from '../Components/Footer';
 
 
 
@@ -226,15 +231,15 @@ useEffect(()=>{
 
             <MainDetails />
 
-            {/* <ClientDetails /> */}
+            <ClientDetails />
 
-            {/* <Dates /> */}
+            <Date />
 
-            {/* <Table /> */}
+            <Table />
 
-            {/* <Notes /> */}
+            <Notes />
 
-            {/* <Footer /> */}
+            <Footer />
           </div>
         </div>
       </main>

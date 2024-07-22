@@ -30,7 +30,7 @@ const Header = ({ isAuth, handleSignOut }) => {
 
   return (
     <>
-      <header className="p-5 flex items-center justify-between xl:max-w-7xl lg:mx-auto 2xl:px-0 bg-[#ecc0c0]">
+      <header className="p-5 flex items-center justify-between xl:max-w-7xl lg:mx-auto 2xl:px-0 ">
         <div>
           <h2 className="font-bold text-4xl text-gray-800">
             <Link to="/">Invoicer</Link>

@@ -49,6 +49,7 @@ const TableForm = () => {
           className="bg-blue-500 mb-5 text-white font-bold py-2 px-8 rounded hover:bg-blue-600 hover:text-white transition-all duration-150 hover:ring-4 hover:ring-blue-400"
         >
           {/* {isEditing ? "Finish Editing" : "Add Table Item"} */}
+          Add Table Item
         </button>
       </form>
 
