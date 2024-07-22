@@ -1,44 +1,21 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { State } from "../Context/StateContext";
+import ReactToPrint from "react-to-print";
+import TableForm from '../Components/TableForm';
+import InvoiceHeader from '../Components/InvoiceHeader';
+import MainDetails from './MainDetails';
+
 
 
 const Invoice = ({isAuth}) => {
 
-    const {
-        
-      } = useContext(State);
-    
+  const componentRef = useRef();
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const navigate = useNavigate();    
+const navigate = useNavigate(); 
 useEffect(()=>{
     if(!isAuth){
-      navigate('/signin')
+      navigate('/signin');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isAuth]);
@@ -215,7 +192,7 @@ useEffect(()=>{
 
               {/* This is our table form */}
               <article>
-                {/* <TableForm /> */}
+                <TableForm/>
               </article>
 
               <label htmlFor="notes">Additional Notes</label>
@@ -235,29 +212,29 @@ useEffect(()=>{
         </section>
 
         {/* Invoice Preview */}
-        <div className="invoice__preview bg-white p-5 rounded-2xl border-4 border-blue-200">
-          {/* <ReactToPrint
+        <div className="invoice__preview bg-white p-5 rounded-2xl border-4 border-blue-200 " >
+           <ReactToPrint
             trigger={() => (
               <button className="bg-blue-500 ml-5 text-white font-bold py-2 px-8 rounded hover:bg-blue-600 hover:text-white transition-all duration-150 hover:ring-4 hover:ring-blue-400">
                 Print / Download
               </button>
             )}
             content={() => componentRef.current}
-          /> */}
-          <div  className="p-5">
-            {/* <Header />
+          /> 
+          <div  ref={componentRef}  className="p-5">
+            <InvoiceHeader />
 
             <MainDetails />
 
-            <ClientDetails />
+            {/* <ClientDetails /> */}
 
-            <Dates />
+            {/* <Dates /> */}
 
-            <Table />
+            {/* <Table /> */}
 
-            <Notes />
+            {/* <Notes /> */}
 
-            <Footer /> */}
+            {/* <Footer /> */}
           </div>
         </div>
       </main>

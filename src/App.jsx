@@ -14,7 +14,7 @@ import Invoice from './Pages/Invoice';
 
 const App = () => {
 
-
+  
   const [user, setuser] = useState(null);
   const [isAuth, setisAuth] = useState(localStorage.getItem('LoggedIn_invoice'));
 
@@ -34,14 +34,14 @@ const App = () => {
   signOut(auth).then(() => {
     localStorage.clear();
     setisAuth(false);
-  window.location.pathname = '/signin'
+    window.location.pathname = '/signin'
   })
 }
 
 
   return (
     <>
-    <ToastContainer position='top-right' />
+    <ToastContainer position='top-right' theme="colored" />
        <ScrollTop/>
        <Header handleSignOut={signUserOut} isAuth={isAuth} />
 
