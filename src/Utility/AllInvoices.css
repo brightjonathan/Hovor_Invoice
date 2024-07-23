@@ -81,7 +81,7 @@ ul li{
 .invoice-head-top-right h3{
     font-weight: 500;
     font-size: 27px;
-    color: var(--blue-color);
+    /* color: var(--blue-color); */
 }
 
 .invoice-head-middle, .invoice-head-bottom{

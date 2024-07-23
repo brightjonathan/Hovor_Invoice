@@ -44,7 +44,22 @@ const AllInvoices = () => {
     
     },[])
     
-
+    // address,
+    // bankAccount,
+    // bankName,
+    // clientAddress,
+    // clientName,
+    // description,
+    // dueDate,
+    // email,
+    // invoiceDate,
+    // invoiceNumber,
+    // notes,
+    // phone,
+    // price,
+    // quantity,
+    // userName,
+    // website
 
   return (
     <>
@@ -54,24 +69,8 @@ const AllInvoices = () => {
     {Allinvoices?.map((item)=>{
         return(
           <div key={item.id}>
-            
-            
-          </div>
-        )
-       })}
-    
 
-
-      </div>
-
-    </>
-  )
-}
-
-export default AllInvoices;
-
-
-{/* <div class="invoice-wrapper" ref={componentRef}>
+            <div class="invoice-wrapper" ref={componentRef}>
             <div class="invoice" >
 
             <div class = "invoice-btns">
@@ -94,17 +93,17 @@ export default AllInvoices;
                                 <img src={logo} />
                                 <p className='text-[9px]'>interior Decor | Furnishing | Art | Consulting | Printing</p>
                             </div>
-                            <div className = "invoice-head-top-right text-end">
-                                <h3>Invoice</h3>
+                            <div className = "invoice-head-top-right text-end ">
+                                <h3 className='text-[red]'>Invoice </h3>
                             </div>
                         </div>
                         <div className = "hr"></div>
                         <div className = "invoice-head-middle">
                             <div className = "invoice-head-middle-left text-start">
-                                <p><span class = "text-bold">Date</span>: 05/12/2020</p>
+                                <p><span class = "text-bold">Date</span>: {item?.invoiceDate}</p>
                             </div>
                             <div className = "invoice-head-middle-right text-end">
-                                <p><span class = "text-bold">Invoice No:</span>16789</p>
+                                <p className='text-[green]'><span class = "text-bold ">Invoice No:</span>{item?.invoiceNumber}</p>
                             </div>
                         </div>
                         <div className = "hr"></div>
@@ -179,4 +178,20 @@ export default AllInvoices;
                     </div>
                 </div>
             </div>
-        </div> */}
+        </div> 
+          </div>
+        )
+       })}
+    
+
+
+      </div>
+
+    </>
+  )
+}
+
+export default AllInvoices;
+
+
+ 
