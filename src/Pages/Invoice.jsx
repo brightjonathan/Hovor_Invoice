@@ -38,7 +38,7 @@ const initialState = {
 
 const InputField = ({ label, name, type, value, onChange, maxLength, placeholder }) => (
   <div className="flex flex-col">
-    <label htmlFor={name}>{label}</label>
+    <label htmlFor={name}> {label} </label>
     <input
       type={type}
       name={name}

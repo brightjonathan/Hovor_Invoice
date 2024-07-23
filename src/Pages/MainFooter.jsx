@@ -12,14 +12,14 @@ const MainFooter = () => {
         </div>
 
         <ul className="">
-          <li>
-            <Link to="/about" className="text-white">
-              About Us
-            </Link>
-          </li>
           <li className="my-3">
             <Link to="/" className="text-white">
               Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/about" className="text-white">
+              About Us
             </Link>
           </li>
           <li className="my-3">

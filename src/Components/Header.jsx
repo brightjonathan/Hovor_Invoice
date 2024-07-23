@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { navbarData } from '../Utility/NavbarData'
 import CreateAccount from "../Pages/CreateAccount";
 import Logout from "../Pages/Logout";
+import logo from '../assets/rifco-logo.png';
 
 const Header = ({ isAuth, handleSignOut }) => {
 
@@ -33,7 +34,7 @@ const Header = ({ isAuth, handleSignOut }) => {
       <header className="p-5 flex items-center justify-between xl:max-w-7xl lg:mx-auto 2xl:px-0  ">
         <div>
           <h2 className="font-bold text-4xl text-gray-800">
-            <Link to="/" > R.I.C.E.O </Link>
+            <Link to="/" > <img src={logo} alt="logo" width={100} /></Link>
           </h2>
         </div>
 
@@ -56,7 +57,7 @@ const Header = ({ isAuth, handleSignOut }) => {
                 }
             </li>
             <li>
-              {/* <DonateButton /> */}
+            <Link to={'/all-invoices-receipt'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> All invoices and Receipt </Link>
             </li>
           </ul>
         </nav>

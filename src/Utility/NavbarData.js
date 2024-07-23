@@ -23,6 +23,11 @@ export const navbarData = [
     title: "Create Receipt",
     url_path: "#",
   },
+  // {
+  //   id: uuidv4(),
+  //   title: "Click to view all invoices and receipt ",
+  //   url_path: "/all-invoices-receipt",
+  // },
 ];
 
 

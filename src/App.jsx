@@ -11,6 +11,7 @@ import { signOut } from 'firebase/auth';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Invoice from './Pages/Invoice';
+import All_Invoices_Receipt from './Pages/All_Invoices_Receipt';
 
 const App = () => {
 
@@ -50,6 +51,7 @@ const App = () => {
         <Route path='/register' element={ <CreateAccount setisAuth={setisAuth} /> } />
         <Route path='/signin' element={ <LogIn setisAuth={setisAuth} setuser={setuser}/> } />
         <Route path='/invoice' element={<Invoice isAuth={isAuth}/>}/>
+        <Route path='/all-invoices-receipt' element={< All_Invoices_Receipt />}/>
        </Routes>
     </>
   )
