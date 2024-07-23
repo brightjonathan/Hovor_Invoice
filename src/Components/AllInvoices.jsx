@@ -3,11 +3,14 @@ import { collection, onSnapshot} from 'firebase/firestore';
 import '../Utility/AllInvoices.css';
 import ReactToPrint from 'react-to-print';
 import logo from '../assets/rifco-logo.png';
-import { db } from '../Firebase/Firebase_config';
+import { auth, db } from '../Firebase/Firebase_config';
 import LoadSpinner from '../Utility/LoadSpinner';
+import Notiflix from 'notiflix';
+import { MdOutlineDeleteOutline } from "react-icons/md";
 
 
-const AllInvoices = () => {
+
+const AllInvoices = ({isAuth}) => {
 
     const componentRef = useRef();
     const [Allinvoices, setAllinvoices] = useState([]);
@@ -51,24 +54,25 @@ const AllInvoices = () => {
     {isloading && <LoadSpinner />}
     <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 0 lg:grid-cols-2 gap-x-6 gap-y-16 px-4 pt-10 sm:pt-10 text-black'>
        
-    {Allinvoices?.map((item)=>{
+    { Allinvoices?.map((item)=>{
         return(
           <div key={item.id}>
 
             <div class="invoice-wrapper" ref={componentRef}>
             <div class="invoice" >
 
-            <div class = "invoice-btns">
+            <div class = "invoice-btns cursor-auto">
                 <ReactToPrint
                   trigger={() => (
-                  <button type = "button" className="invoice-btn">
-                    <span> <i class="fa-solid fa-print"></i> </span>
+                  <button type = "button" className="invoice-btn cursor-pointer">
+                    {/* <span> <i class="fa-solid fa-print"></i> </span> */}
                     <span>Download</span>
                   </button>  
                   )}
                   content={() => componentRef.current}
                 />
-            </div>
+ 
+                </div>
 
 
                 <div className = "invoice-container" >
@@ -145,6 +149,17 @@ const AllInvoices = () => {
                     <div className = "invoice-foot text-center">
                         <p><span className = "text-bold text-center ">NOTE:&nbsp;</span> <span className='text-[12px]'> This Invoice does not require physical signature. </span></p>
                     </div>
+
+                    {
+                    isAuth && item.User.id === auth.currentUser.uid && 
+                    <div className="flex justify-center items-center">
+                        <button type="button" className="invoice-btn bg-[#2DD4BF] text-white p-2 rounded">
+                            <span><MdOutlineDeleteOutline /></span>
+                        </button>
+                   </div> 
+                    }
+                   
+                  
                 </div>
             </div>
         </div> 

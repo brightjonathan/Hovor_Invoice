@@ -51,7 +51,7 @@ const App = () => {
         <Route path='/register' element={ <CreateAccount setisAuth={setisAuth} /> } />
         <Route path='/signin' element={ <LogIn setisAuth={setisAuth} setuser={setuser}/> } />
         <Route path='/invoice' element={<Invoice isAuth={isAuth}/>}/>
-        <Route path='/all-invoices-receipt' element={< All_Invoices_Receipt />}/>
+        <Route path='/all-invoices-receipt' element={< All_Invoices_Receipt isAuth={isAuth}/>}/>
        </Routes>
     </>
   )

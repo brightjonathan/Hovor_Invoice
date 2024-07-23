@@ -1,10 +1,10 @@
 import AllInvoices from "../Components/AllInvoices";
 
-const All_Invoices_Receipt = () => {
+const All_Invoices_Receipt = ({isAuth}) => {
 
   return (
     <div>
-        <AllInvoices />
+        <AllInvoices isAuth={isAuth}/>
     </div>
   )
 }
