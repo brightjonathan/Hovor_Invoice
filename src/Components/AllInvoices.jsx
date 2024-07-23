@@ -6,6 +6,7 @@ import logo from '../assets/rifco-logo.png';
 import { db } from '../Firebase/Firebase_config';
 import LoadSpinner from '../Utility/LoadSpinner';
 
+
 const AllInvoices = () => {
 
     const componentRef = useRef();
@@ -44,22 +45,6 @@ const AllInvoices = () => {
     
     },[])
     
-    // address,
-    // bankAccount,
-    // bankName,
-    // clientAddress,
-    // clientName,
-    // description,
-    // dueDate,
-    // email,
-    // invoiceDate,
-    // invoiceNumber,
-    // notes,
-    // phone,
-    // price,
-    // quantity,
-    // userName,
-    // website
 
   return (
     <>
@@ -100,7 +85,7 @@ const AllInvoices = () => {
                         <div className = "hr"></div>
                         <div className = "invoice-head-middle">
                             <div className = "invoice-head-middle-left text-start">
-                                <p><span class = "text-bold">Date</span>: {item?.invoiceDate}</p>
+                                <p><span className = "text-bold">Date</span>: {item?.invoiceDate}</p>
                             </div>
                             <div className = "invoice-head-middle-right text-end">
                                 <p className='text-[green]'><span class = "text-bold ">Invoice No:</span>{item?.invoiceNumber}</p>
@@ -111,19 +96,17 @@ const AllInvoices = () => {
                             <div className = "invoice-head-bottom-left">
                                 <ul>
                                     <li className = 'text-bold'>Invoiced To:</li>
-                                    <li>Smith Rhodes</li>
-                                    <li>15 Hodges Mews, High Wycombe</li>
-                                    <li>HP12 3JL</li>
-                                    <li>United Kingdom</li>
+                                    <li>{item?.clientName}</li>
+                                    <li>{item?.dueDate}</li>
+                                    <li>{item?.clientAddress}</li>
                                 </ul>
                             </div>
                             <div className = "invoice-head-bottom-right">
                                 <ul className = "text-end">
                                     <li className = 'text-bold'>Pay To:</li>
-                                    <li>Koice Inc.</li>
-                                    <li>2705 N. Enterprise</li>
-                                    <li>Orange, CA 89438</li>
-                                    <li>contact@koiceinc.com</li>
+                                    <li>{item?.userName}</li>
+                                    <li>{item?.address}</li>
+                                    <li>{item?.email}</li>
                                 </ul>
                             </div>
                         </div>
@@ -133,48 +116,34 @@ const AllInvoices = () => {
                             <table>
                                 <thead>
                                     <tr>
-                                        <td className = "text-bold">Service</td>
                                         <td className = "text-bold">Description</td>
-                                        <td className = "text-bold">Rate</td>
+                                        <td className = "text-bold">Price</td>
                                         <td className = "text-bold">QTY</td>
                                         <td className = "text-bold">Amount</td>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Design</td>
-                                        <td>Creating a website design</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td class = "text-end">$500.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Development</td>
-                                        <td>Website Development</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td className = "text-end">$500.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>SEO</td>
-                                        <td>Optimize the site for search engines (SEO)</td>
-                                        <td>$50.00</td>
-                                        <td>10</td>
-                                        <td className = "text-end">$500.00</td>
-                                    </tr>
+                                         {item?.list?.map((listItem, index) => (
+                                          <tr key={index}>
+                                            <td>{listItem?.description} </td>
+                                            <td>&#x20A6;{listItem?.price.toLocaleString()}</td>
+                                            <td>{listItem?.quantity}</td>
+                                            <td className="text-end">&#x20A6;{listItem?.amount.toLocaleString()}</td>
+                                          </tr>
+                                           ))}
                                     
                                 </tbody>
                             </table>
                             <div className = "invoice-body-bottom">
                                 <div className = "invoice-body-info-item">
                                     <div className = "info-item-td text-end text-bold">Total:</div>
-                                    <div className = "info-item-td text-end">$2150.00</div>
+                                    <div className = "info-item-td text-end text-bold">&#x20A6;{item?.total.toLocaleString()}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className = "invoice-foot text-center">
-                        <p><span className = "text-bold text-center">NOTE:&nbsp;</span>This is computer generated receipt and does not require physical signature.</p>
+                        <p><span className = "text-bold text-center ">NOTE:&nbsp;</span> <span className='text-[12px]'> This Invoice does not require physical signature. </span></p>
                     </div>
                 </div>
             </div>

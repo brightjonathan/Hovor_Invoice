@@ -18,16 +18,12 @@ export const navbarData = [
     title: " Create Invoice",
     url_path: "/invoice",
   },
-  {
-    id: uuidv4(),
-    title: "Create Receipt",
-    url_path: "#",
-  },
   // {
   //   id: uuidv4(),
-  //   title: "Click to view all invoices and receipt ",
-  //   url_path: "/all-invoices-receipt",
+  //   title: "Create Receipt",
+  //   url_path: "#",
   // },
+  
 ];
 
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactToPrint from "react-to-print";
+//import ReactToPrint from "react-to-print";
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import InvoiceHeader from '../Components/InvoiceHeader';
 import MainDetails from '../Components/MainDetails';
@@ -161,6 +161,7 @@ const Invoice = ({ isAuth }) => {
       setLoading(false);
       toast.success('saved successfully!');
       setFormValue(initialState);
+      navigate('/all-invoices-receipt')
       setList([]);
       setLoading(false);
     } catch (error) {
@@ -282,6 +283,15 @@ const Invoice = ({ isAuth }) => {
                     placeholder="Invoice Number"
                   />
                   <InputField
+                    label="Client Number"
+                    name="dueDate"
+                    type="number"
+                    value={dueDate}
+                    onChange={onInputChange}
+                    placeholder="Client Number"
+                  />
+
+                  <InputField
                     label="Invoice Date"
                     name="invoiceDate"
                     type="date"
@@ -289,14 +299,7 @@ const Invoice = ({ isAuth }) => {
                     onChange={onInputChange}
                     placeholder="Invoice Date"
                   />
-                  <InputField
-                    label="Due Date"
-                    name="dueDate"
-                    type="date"
-                    value={dueDate}
-                    onChange={onInputChange}
-                    placeholder="Invoice Date"
-                  />
+                  
                 </article>
 
                 <article>
@@ -372,15 +375,16 @@ const Invoice = ({ isAuth }) => {
         </form>
 
         <div className="invoice__preview bg-white p-5 rounded-2xl border-4 border-blue-200 ">
-          <ReactToPrint
+          {/* <ReactToPrint
             trigger={() => (
               <button className="bg-blue-500 ml-5 text-white font-bold py-2 px-8 rounded hover:bg-blue-600 hover:text-white transition-all duration-150 hover:ring-4 hover:ring-blue-400">
                 Print / Download
               </button>
             )}
             content={() => componentRef.current}
-          />
-          <div ref={componentRef} className="p-5">
+          /> */}
+          {/* ref={componentRef} */}
+          <div  className="p-5">
             <InvoiceHeader />
             <MainDetails formValue={formValue} />
             <ClientDetails formValue={formValue} />
