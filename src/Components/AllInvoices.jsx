@@ -7,7 +7,7 @@ import { auth, db } from '../Firebase/Firebase_config';
 import LoadSpinner from '../Utility/LoadSpinner';
 import Notiflix from 'notiflix';
 import { MdOutlineDeleteOutline } from "react-icons/md";
-
+import html2pdf from 'html2pdf.js';
 
 
 const AllInvoices = ({isAuth}) => {
@@ -86,17 +86,31 @@ const confirmLogOut = (id)=>{
   )
 }
 
+
+const downloadInvoice = (index) => {
+  const invoiceElement = componentRefs.current[index];
+  const opt = {
+      margin: 1,
+      filename: `invoice_${index + 1}.pdf`,
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+  };
+  html2pdf().from(invoiceElement).set(opt).save();
+};
+
+
   return (
     <>
     {isloading && <LoadSpinner />}
     {!isloading && (Allinvoices && Allinvoices.length !== 0 ? (
       <>
-        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-2 gap-x-6 gap-y-16 px-4 pt-10 sm:pt-10 text-black'>
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-16 px-4 pt-10 sm:pt-10 text-black'>
           {Allinvoices.map((item, index) => (
             <div key={item.id}>
               <div className="invoice-wrapper" ref={el => (componentRefs.current[index] = el)}>
                 <div className="invoice">
-                  <div className="invoice-btns cursor-auto">
+                  {/* <div className="invoice-btns cursor-auto">
                     <ReactToPrint
                       trigger={() => (
                         <button type="button" className="invoice-btn cursor-pointer">
@@ -106,7 +120,18 @@ const confirmLogOut = (id)=>{
                       )}
                       content={() => componentRefs.current[index]}
                     />
-                  </div>
+                  </div> */}
+
+                    <div className="invoice-btns cursor-auto">
+                      <button
+                      type="button"
+                      className="invoice-btn cursor-pointer"
+                      onClick={() => downloadInvoice(index)}
+                      >
+                      {/* <span><i className="fa-solid fa-download"></i></span> */}
+                      <span>Download</span>
+                    </button>
+                  </div>                   
   
                   <div className="invoice-container">
                     <div className="invoice-head">
@@ -208,4 +233,5 @@ const confirmLogOut = (id)=>{
 }
 
 export default AllInvoices;
+
 
