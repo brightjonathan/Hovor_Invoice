@@ -384,7 +384,7 @@ const Invoice = ({ isAuth }) => {
             content={() => componentRef.current}
           /> */}
           {/* ref={componentRef} */}
-          <div  className="p-5">
+          <div  className="p-5" >
             <InvoiceHeader />
             <MainDetails formValue={formValue} />
             <ClientDetails formValue={formValue} />
