@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Invoice from './Pages/Invoice';
 import All_Invoices_Receipt from './Pages/All_Invoices_Receipt';
+import Notiflix from 'notiflix';
 
 const App = () => {
 
@@ -40,11 +41,34 @@ const App = () => {
 }
 
 
+const confirmLogOut = (id)=>{
+  Notiflix.Confirm.show(
+    "Logging out from your Account!!!",
+    "You are about to Logout from your account",
+    "Yes",
+    "Cancel",
+    function okCb() {
+      signUserOut();
+    },
+    function cancelCb() {
+      console.log("Delete Canceled");
+    },
+    {
+      width: "320px",
+      borderRadius: "3px",
+      titleColor: "orangered",
+      okButtonBackground: "orangered",
+      cssAnimationStyle: "zoom",
+    }
+  )
+}
+
+
   return (
     <>
     <ToastContainer position='top-right' theme="colored" />
        <ScrollTop/>
-       <Header handleSignOut={signUserOut} isAuth={isAuth} />
+       <Header handleSignOut={confirmLogOut} isAuth={isAuth} />
 
        <Routes>
         <Route path='/' element={ <Home /> } />

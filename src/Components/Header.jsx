@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { navbarData } from '../Utility/NavbarData'
-import CreateAccount from "../Pages/CreateAccount";
+//import CreateAccount from "../Pages/CreateAccount";
 import Logout from "../Pages/Logout";
 import logo from '../assets/rifco-logo.png';
+
 
 const Header = ({ isAuth, handleSignOut }) => {
 
@@ -43,7 +44,9 @@ const Header = ({ isAuth, handleSignOut }) => {
             {links.map(({ id, title, url_path }) => (
               <div key={id}>
                 <li key={id} className="list-item">
-                  <Link to={url_path} className="text-base text-slate-700">
+                  <Link to={url_path}
+                  className="text-base text-slate-700 hover:text-slate-900 hover:underline underline-offset-4 transition duration-300 ease-in-out"
+                  >
                     {title}
                   </Link>
                 </li>

@@ -12,7 +12,7 @@ const Date = ({formValue}) => {
           <span className="font-bold">Invoice date:</span> {formValue.invoiceDate}
         </li>
         <li className="p-1 ">
-          <span className="font-bold">Due date:</span> {formValue.dueDate}
+          <span className="font-bold">Client number:</span> {formValue.dueDate}
         </li>
       </ul>
     </article>
