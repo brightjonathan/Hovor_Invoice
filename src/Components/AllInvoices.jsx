@@ -190,7 +190,7 @@ const downloadInvoice = (index) => {
                                 <td>{listItem.description}</td>
                                 <td>&#x20A6;{listItem.price.toLocaleString()}</td>
                                 <td>{listItem.quantity}</td>
-                                <td className="text-end">&#x20A6;{listItem.amount.toLocaleString()}</td>
+                                <td className="text-center">&#x20A6;{listItem.amount.toLocaleString()}</td>
                               </tr>
                             ))}
                           </tbody>
@@ -198,7 +198,7 @@ const downloadInvoice = (index) => {
                         <div className="invoice-body-bottom">
                           <div className="invoice-body-info-item">
                             <div className="info-item-td text-end text-bold">Total:</div>
-                            <div className="info-item-td text-end text-bold">&#x20A6;{item.total.toLocaleString()}</div>
+                            <div className="info-item-td text-bold ml-[-1vh]">&#x20A6;{item.total.toLocaleString()}</div>
                           </div>
                         </div>
                       </div>
