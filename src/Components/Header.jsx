@@ -15,17 +15,23 @@ const Header = ({ isAuth, handleSignOut }) => {
 
     const handleClick = () => {
         setIsOpen(true)
-        const navbar = document.querySelector(".navbar")
-        const listItems = document.querySelectorAll(".list-item")
+        const navbar = document.querySelector(".navbar");
+        const listItems = document.querySelectorAll(".list-item");
     
         navbar.classList.toggle("open")
         setIsOpen(!isOpen)
     
         listItems.forEach((item) => {
-          item.addEventListener("click", () => navbar.classList.remove("open"))
-          setIsOpen(false)
+          item.addEventListener("click", () => navbar.classList.remove("open"));
+          setIsOpen(false);
         })
       }
+
+
+      const handleClose = () =>{
+        setIsOpen(!isOpen)
+      };
+    
     
 
 
@@ -43,7 +49,7 @@ const Header = ({ isAuth, handleSignOut }) => {
           <ul>
             {links.map(({ id, title, url_path }) => (
               <div key={id}>
-                <li key={id} className="list-item">
+                <li key={id} className="list-item" onClick={handleClose} >
                   <Link to={url_path}
                   className="text-base text-slate-700 hover:text-slate-900 hover:underline underline-offset-4 transition duration-300 ease-in-out"
                   >
@@ -78,4 +84,4 @@ const Header = ({ isAuth, handleSignOut }) => {
   )
 }
 
-export default Header
+export default Header;

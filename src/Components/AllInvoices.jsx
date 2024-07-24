@@ -87,7 +87,7 @@ const confirmLogOut = (id)=>{
 
 
   return (
-    <>
+    <d>
     {isloading && <LoadSpinner />}
     {!isloading && (Allinvoices && Allinvoices.length !== 0 ? (
       <>
@@ -100,7 +100,7 @@ const confirmLogOut = (id)=>{
                     <ReactToPrint
                       trigger={() => (
                         <button type="button" className="invoice-btn cursor-pointer">
-                          <span> <i className="fa-solid fa-print"></i> </span>
+                          {/* <span> <i className="fa-solid fa-print"></i> </span> */}
                           <span>Download</span>
                         </button>
                       )}
@@ -200,9 +200,13 @@ const confirmLogOut = (id)=>{
         </div>
       </>
     ) : (
-      <h2 className='text-[black]'> No invoice found </h2>
+      < div class="flex items-center justify-center min-h-screen">
+        <div className="flex items-center justify-center mx-auto my-[15vh] sm:my-[20vh] md:my-[25vh] lg:my-[30vh] bg-white rounded-lg p-5 sm:p-8 md:p-12 text-bold">
+            <h2 className="text-red-500">No invoice found</h2>
+        </div>
+    </div>
     ))}
-  </>
+  </d>
   
   )
 }
