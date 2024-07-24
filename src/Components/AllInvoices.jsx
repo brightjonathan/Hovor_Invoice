@@ -105,7 +105,7 @@ const downloadInvoice = (index) => {
     {isloading && <LoadSpinner />}
     {!isloading && (Allinvoices && Allinvoices.length !== 0 ? (
       <>
-        <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 gap-x-6 gap-y-16 px-4 pt-10 sm:pt-10 text-black'>
+        <div className='grid grid-cols-1 gap-4 sm:grid-cols-1 lg:grid-cols-1 gap-x-6 gap-y-16 px-4 pt-10 sm:pt-10 text-black'>
           {Allinvoices.map((item, index) => (
             <div key={item.id}>
               <div className="invoice-wrapper" ref={el => (componentRefs.current[index] = el)}>
