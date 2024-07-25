@@ -8,20 +8,10 @@ export const navbarData = [
     title: "Home",
     url_path: "/",
   },
-  {
-    id: uuidv4(),
-    title: "About Us",
-    url_path: "/about",
-  },
-  {
-    id: uuidv4(),
-    title: " Create Invoice",
-    url_path: "/invoice",
-  },
   // {
   //   id: uuidv4(),
-  //   title: "Create Receipt",
-  //   url_path: "#",
+  //   title: "About Us",
+  //   url_path: "/about",
   // },
   
 ];

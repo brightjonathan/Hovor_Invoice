@@ -51,7 +51,7 @@ const Header = ({ isAuth, handleSignOut }) => {
               <div key={id}>
                 <li key={id} className="list-item" onClick={handleClose} >
                   <Link to={url_path}
-                  className="text-base text-slate-700 hover:text-slate-900 hover:underline underline-offset-4 transition duration-300 ease-in-out"
+                  className="text-base text-slate-700 hover:text-slate-900 hover:underline underline-offset-4 transition duration-300 ease-in-out text-bold"
                   >
                     {title}
                   </Link>
@@ -59,14 +59,18 @@ const Header = ({ isAuth, handleSignOut }) => {
               </div>
             ))}
            
-
+              <li> 
+               {isAuth ? (
+                <Link to={'/invoice'} className="text-base text-slate-700 hover:text-slate-900 hover:underline underline-offset-4 transition duration-300 ease-in-out text-bold"> Create Invoice </Link>
+               ):(null)}
+              </li>
             <li>
                 {
-                isAuth ? <Logout handleSignOut={handleSignOut} /> : <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link> 
+                isAuth ? <Logout handleSignOut={handleSignOut} /> : <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white text-bold transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link> 
                 }
             </li>
             <li>
-            <Link to={'/all-invoices-receipt'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> All invoices and Receipt </Link>
+            <Link to={'/all-invoices-receipt'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black] text-bold  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> All invoices and Receipt </Link>
             </li>
           </ul>
         </nav>

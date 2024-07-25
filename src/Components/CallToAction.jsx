@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const CallToAction = () => {
+const CallToAction = ({isAuth}) => {
   return (
     <>
       <div className="bg-[#131616] py-10 lg:py-32">
@@ -20,7 +20,9 @@ const CallToAction = () => {
             <article>
               <ul className="flex items-center justify-center">
                 <li className="mr-3">
-                <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link>
+                {!isAuth ? (
+                  <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link>
+                ):(null)}
                 </li>
                 <li className="">
                   {/* <LogIn /> */}

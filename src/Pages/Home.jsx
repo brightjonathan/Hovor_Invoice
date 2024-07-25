@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CallToAction from '../Components/CallToAction';
 import MainFooter from './MainFooter';
 
-const Home = () => {
+const Home = ({isAuth}) => {
   return (
     <>
     <section className="max-width">
@@ -28,7 +28,9 @@ const Home = () => {
             </p>
             <ul className="flex flex-wrap items-center justify-center md:justify-start">
               <li className="mr-3 slide-up">
-              <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link>
+                {!isAuth ? (
+                  <Link to={'/register'} className="bg-[#166534] py-2 px-6 rounded text-base hover:bg-[#bbf0cf] text-white transition-all duration-150 hover:text-[black]  shadow-lg hover:ring-4 hover:ring-[#bbf0cf]"> Log In or Create Account </Link>
+                ):(null)}
               </li>
               <li className="slide-up">
                 {/* <LogIn /> */}
@@ -61,8 +63,8 @@ const Home = () => {
     </section>
     <div className="slant"></div>
 
-    <CallToAction/>
-    <MainFooter/>
+    <CallToAction isAuth={isAuth}/>
+    <MainFooter isAuth={isAuth}/>
   </>
   )
 }

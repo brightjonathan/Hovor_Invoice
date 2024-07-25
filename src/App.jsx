@@ -71,7 +71,7 @@ const confirmLogOut = (id)=>{
        <Header handleSignOut={confirmLogOut} isAuth={isAuth} />
 
        <Routes>
-        <Route path='/' element={ <Home /> } />
+        <Route path='/' element={ <Home isAuth={isAuth}/> } />
         <Route path='/register' element={ <CreateAccount setisAuth={setisAuth} /> } />
         <Route path='/signin' element={ <LogIn setisAuth={setisAuth} setuser={setuser}/> } />
         <Route path='/invoice' element={<Invoice isAuth={isAuth}/>}/>
