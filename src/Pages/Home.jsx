@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../assets/rifeo.png';
+import hero from '../assets/heroimg12.png';
 import '../Utility/Animate.css';
 import { Link } from 'react-router-dom';
 import CallToAction from '../Components/CallToAction';
